@@ -1,0 +1,32 @@
+# Node modules and logs
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Env files
+.env
+.env.*.local
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+
+# Build/cache/coverage
+.cache/
+coverage/
+.tmp/
+*.log
+.eslintcache
+
+# Optional: ignore built output.
+# If you build in CI and don't commit dist, uncomment the next line.
+# dist/
+
+# Optional: package manager stores
+.pnp/
+.pnpm

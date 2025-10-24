@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Window tinting, vehicle wraps, paint protection film, leather upgrades, and heated seats in Renton, WA."
+    />
+    <title>NW Auto Supreme | Tint, Wraps, Leather & PPF – Renton, WA</title>
+
+    <!-- Styles -->
+    <meta name="theme-color" content="#0A63FF" />
+    <link rel="stylesheet" href="./styles.css" />
+</head>
+  <body>
+    <header>
+      <div class="container nav">
+        <div class="brand">
+          <div class="logo">NW</div>
+          <div class="brand-name">Auto Supreme</div>
+        </div>
+
+        <nav class="links">
+          <a href="#services">Services</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#reviews">Reviews</a>
+          <a href="#contact">Contact</a>
+          <a href="#" data-open-modal class="cta-call">Get Quote</a>
+          <theme-toggle></theme-toggle>
+        </nav>
+
+        <div class="hamburger">
+          <theme-toggle></theme-toggle>
+          <button id="openDrawer" class="ham-btn" aria-label="Menu">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M3 6h18M3 12h18M3 18h18" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <site-drawer>
+      <a href="#services" data-close>Services</a>
+      <a href="#gallery" data-close>Gallery</a>
+      <a href="#reviews" data-close>Reviews</a>
+      <a href="#contact" data-close>Contact</a>
+      <a href="#" data-open-modal data-close>Request Quote</a>
+      <div slot="footer">
+        <a href="tel:4259199472" class="cta-call">Call (425) 919-9472</a>
+      </div>
+    </site-drawer>
+
+    <main>
+      <!-- HERO -->
+      <section class="base bg-texture fade-up">
+        <div class="container hero-grid">
+          <div>
+            <h1>Custom Automotive Styling, Protection & Comfort</h1>
+            <p class="subtitle">
+              Window Tint • Vehicle Wraps • Leather • PPF • Heated Seats
+            </p>
+            <div class="btns">
+              <a href="#" data-open-modal class="btn primary"
+                >Request a Quote</a
+              >
+              <a href="tel:4259199472" class="btn secondary"
+                >Call (425) 919-9472</a
+              >
+            </div>
+          </div>
+          <div class="hero-visual">
+            <div class="badge">Renton, WA</div>
+            <div class="shape s1">
+              <svg viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="50" fill="currentColor" />
+              </svg>
+            </div>
+            <div class="shape s2">
+              <svg viewBox="0 0 100 100">
+                <rect width="100" height="100" fill="currentColor" />
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div class="transition bottom to-alt">
+          <svg preserveAspectRatio="none" viewBox="0 0 1440 120">
+            <path
+              class="fill"
+              d="M0,120 C300,20 600,200 960,60 C1200,-20 1300,90 1440,40 L1440,120 L0,120 Z"
+            />
+          </svg>
+        </div>
+      </section>
+
+      <!-- SERVICES -->
+      <section id="services" class="alt fade-up">
+        <div class="transition top to-base">
+          <svg preserveAspectRatio="none" viewBox="0 0 1440 120">
+            <path
+              class="fill"
+              d="M0,120 C300,20 600,200 960,60 C1200,-20 1300,90 1440,40 L1440,120 L0,120 Z"
+            />
+          </svg>
+        </div>
+        <div class="container">
+          <h2>Our Services</h2>
+          <div class="grid-3">
+            <div class="card">
+              <h3>Window Tint</h3>
+              <p>
+                High-performance films with lifetime warranty. Choose ceramic
+                for maximum heat rejection.
+              </p>
+            </div>
+            <div class="card">
+              <h3>Vehicle Wraps</h3>
+              <p>
+                Custom colors, graphics, and commercial branding for cars,
+                trucks, and fleets.
+              </p>
+            </div>
+            <div class="card">
+              <h3>Paint Protection Film</h3>
+              <p>
+                Self-healing clear film to protect paint from chips and
+                scratches.
+              </p>
+            </div>
+            <div class="card">
+              <h3>Leather Upgrades</h3>
+              <p>
+                Factory-fit leather, perforation, or diamond stitch. OEM-look,
+                Alea certified.
+              </p>
+            </div>
+            <div class="card">
+              <h3>Heated Seats</h3>
+              <p>
+                OEM-style switches with dual-temperature control, available
+                same-day install.
+              </p>
+            </div>
+            <div class="card">
+              <h3>Chrome Delete</h3>
+              <p>
+                Gloss, satin, or matte black vinyl trim wrap to modernize your
+                vehicle’s appearance.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="transition bottom to-deep">
+          <svg preserveAspectRatio="none" viewBox="0 0 1440 120">
+            <path
+              class="fill"
+              d="M0,120 C300,20 600,200 960,60 C1200,-20 1300,90 1440,40 L1440,120 L0,120 Z"
+            />
+          </svg>
+        </div>
+      </section>
+
+      <!-- GALLERY -->
+      <section id="gallery" class="deep fade-up">
+        <div class="container">
+          <h2>Gallery</h2>
+          <ba-slider data-preset="tint"></ba-slider>
+          <div id="thumbs" class="gallery-thumbs">
+            <div class="thumb grad-1" data-key="tint">
+              <div class="label">Tint</div>
+            </div>
+            <div class="thumb grad-2" data-key="wraps">
+              <div class="label">Wraps</div>
+            </div>
+            <div class="thumb grad-3" data-key="leather">
+              <div class="label">Leather</div>
+            </div>
+            <div class="thumb grad-4" data-key="ppf">
+              <div class="label">PPF</div>
+            </div>
+          </div>
+          <button id="viewMore" class="btn secondary" style="margin-top: 20px">
+            View More
+          </button>
+        </div>
+        <div class="transition bottom to-alt">
+          <svg preserveAspectRatio="none" viewBox="0 0 1440 120">
+            <path
+              class="fill"
+              d="M0,120 C300,20 600,200 960,60 C1200,-20 1300,90 1440,40 L1440,120 L0,120 Z"
+            />
+          </svg>
+        </div>
+      </section>
+
+      <!-- REVIEWS -->
+      <section id="reviews" class="alt fade-up">
+        <div class="transition top to-deep">
+          <svg preserveAspectRatio="none" viewBox="0 0 1440 120">
+            <path
+              class="fill"
+              d="M0,120 C300,20 600,200 960,60 C1200,-20 1300,90 1440,40 L1440,120 L0,120 Z"
+            />
+          </svg>
+        </div>
+        <div class="container">
+          <h2>Customer Reviews</h2>
+          <reviews-grid>
+            <review-card
+              stars="5"
+              name="Jamie L."
+              meta="2024 Honda Accord • Tint + Leather"
+            >
+              My Accord looks brand new. Edges are tight and no dust trapped.
+              They also upgraded me to Alea leather and it feels factory.
+              <owner-reply
+                >Appreciate you, Jamie! Glad you love the finish.</owner-reply
+              >
+            </review-card>
+            <review-card
+              stars="5"
+              name="Derrick P."
+              meta="2022 Jeep Rubicon • Red Leather"
+            >
+              Top-notch stitching and fast turnaround. They color-matched my
+              Rubicon interior perfectly.
+            </review-card>
+            <review-card
+              stars="5"
+              name="Tiffany H."
+              meta="Tesla Model Y • Ceramic Tint"
+            >
+              Scheduling was simple. Heat reduction is insane — car stays cool
+              even mid-day.
+            </review-card>
+          </reviews-grid>
+        </div>
+        <div class="transition bottom to-base">
+          <svg preserveAspectRatio="none" viewBox="0 0 1440 120">
+            <path
+              class="fill"
+              d="M0,120 C300,20 600,200 960,60 C1200,-20 1300,90 1440,40 L1440,120 L0,120 Z"
+            />
+          </svg>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="base fade-up">
+        <div class="container contact">
+          <div class="card">
+            <h3>Visit / Contact</h3>
+            <ul>
+              <li><strong>Hours:</strong> Mon-Sat 9:00 AM – 5:30 PM</li>
+              <li>
+                <strong>Phone:</strong>
+                <a href="tel:4259199472">(425) 919-9472</a>
+              </li>
+              <li><strong>Address:</strong> Renton, Washington</li>
+              <li><strong>Email:</strong> info@nwautosupreme.com</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Same-Day Appointments</h3>
+            <p>
+              Call for bay availability. We’ll give you a realistic window and
+              stick to it.
+            </p>
+            <a
+              href="#"
+              data-open-modal
+              class="btn primary"
+              style="margin-top: 10px"
+              >Request Quote</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        © <span id="year"></span> NW Auto Supreme · Renton, WA
+      </div>
+    </footer>
+
+    <!-- Quote modal -->
+    <quote-modal></quote-modal>
+
+    <!-- JS -->
+    <script src="./app.js"></script>
+  <script>
+      (() => { const s = new WebSocket('ws://localhost:35729'); s.onmessage = () => location.reload(); })();
+    </script>
+</body>
+</html>

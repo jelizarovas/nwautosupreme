@@ -1,0 +1,1742 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>NW Auto Supreme | Tint, Wraps, Leather & PPF – Renton, WA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Window tinting, vehicle wraps, paint protection film, leather upgrades, heated seats, and interior customization in Renton, WA. Open 9:00 AM – 5:30 PM."
+    />
+    <meta name="theme-color" content="#0A63FF" />
+    <style>
+      :root {
+        --bg: #ffffff;
+        --ink: #0b1220;
+        --muted: #5c6785;
+        --line: #e6ebff;
+        --brand: #0a63ff;
+        --brand-2: #3b82f6;
+        --violet: #7c3aed;
+        --cyan: #00e0ff;
+        --ghost: #f4f7ff;
+        --ghost-2: #eaf0ff;
+        --shadow: 0 10px 30px rgba(10, 99, 255, 0.12);
+        --radius: 14px;
+        /* Section tokens */
+        --sec-base: #ffffff;
+        --sec-alt: #eef3ff;
+        --sec-deep: #0b1b50;
+        --sec-darkband: #0b1b50;
+      }
+      body.dark {
+        --bg: #0b1220;
+        --ink: #e9f0ff;
+        --muted: #b2bdde;
+        --line: #1b2a56;
+        --ghost: #0f1a33;
+        --ghost-2: #0c1530;
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+        --brand: #4f8cff;
+        --brand-2: #6aa4ff;
+        --violet: #9e72ff;
+        --cyan: #3cf0ff;
+        --sec-base: #0b1220;
+        --sec-alt: #0f1a33;
+        --sec-deep: #081238;
+        --sec-darkband: #081238;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica,
+          Arial, sans-serif;
+        color: var(--ink);
+        background: var(--bg);
+      }
+      a {
+        color: var(--brand);
+        text-decoration: none;
+      }
+      .container {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .bg-texture {
+        position: relative;
+        background: radial-gradient(
+            1400px 700px at 10% -10%,
+            color-mix(in oklab, var(--violet) 15%, transparent),
+            transparent 60%
+          ),
+          radial-gradient(
+            1200px 600px at 110% 10%,
+            color-mix(in oklab, var(--cyan) 18%, transparent),
+            transparent 60%
+          ),
+          linear-gradient(
+            180deg,
+            color-mix(in oklab, var(--ghost) 60%, var(--bg)),
+            var(--bg) 40%
+          );
+      }
+      .bg-texture::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        opacity: 0.06;
+        mix-blend: multiply;
+        background-image: repeating-radial-gradient(
+          circle at 20% 10%,
+          rgba(0, 0, 0, 0.06) 0 1px,
+          transparent 1px 6px
+        );
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 80;
+        background: color-mix(in oklab, var(--bg), #fff 4%);
+        backdrop-filter: saturate(140%) blur(8px);
+        border-bottom: 1px solid var(--line);
+      }
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 64px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 800;
+      }
+      .logo {
+        width: 38px;
+        height: 38px;
+        border-radius: 10px;
+        background: conic-gradient(
+          from 140deg at 60% 40%,
+          var(--brand),
+          var(--brand-2),
+          var(--violet),
+          var(--brand)
+        );
+        display: grid;
+        place-items: center;
+        color: #fff;
+        box-shadow: var(--shadow);
+      }
+      .brand-name {
+        letter-spacing: 0.2px;
+      }
+      .links {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+      }
+      .links a {
+        font-weight: 700;
+        color: color-mix(in oklab, var(--ink), #000 10%);
+        padding: 8px 10px;
+        border-radius: 10px;
+      }
+      .links a:hover {
+        background: color-mix(in oklab, var(--ghost), var(--bg));
+      }
+      .cta-call {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: linear-gradient(90deg, var(--brand), var(--brand-2));
+        color: #fff;
+        padding: 10px 14px;
+        border-radius: 12px;
+        box-shadow: var(--shadow);
+      }
+      .icon {
+        width: 18px;
+        height: 18px;
+        display: inline-block;
+      }
+      .hamburger {
+        display: none;
+        align-items: center;
+        gap: 10px;
+      }
+      .ham-btn {
+        background: color-mix(in oklab, var(--ghost), var(--bg));
+        border: none;
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        display: grid;
+        place-items: center;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+      }
+      .ham-btn svg {
+        width: 22px;
+        height: 22px;
+        color: color-mix(in oklab, var(--ink), #000 10%);
+      }
+
+      /* Drawer */
+      .drawer {
+        position: fixed;
+        inset: 0;
+        display: none;
+        z-index: 2000;
+      }
+      .drawer.open {
+        display: block;
+      }
+      .drawer .shade {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.8);
+      }
+      .drawer .panel {
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 100%;
+        width: min(84vw, 380px);
+        background: linear-gradient(
+          180deg,
+          color-mix(in oklab, var(--bg), #fff 4%),
+          color-mix(in oklab, var(--ghost), var(--bg))
+        );
+        border-left: 1px solid color-mix(in oklab, var(--line), #000 6%);
+        box-shadow: -12px 0 30px rgba(0, 0, 0, 0.22);
+        padding: 18px 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .drawer .topbar {
+        display: flex;
+        justify-content: flex-end;
+      }
+      .menu-list {
+        background: linear-gradient(
+          180deg,
+          color-mix(in oklab, var(--ghost), #fff 10%),
+          color-mix(in oklab, var(--ghost-2), var(--bg))
+        );
+        padding: 10px;
+        border-radius: 16px;
+        box-shadow: 0 8px 18px
+          color-mix(in oklab, var(--brand) 16%, transparent);
+      }
+      .menu-list a {
+        display: block;
+        padding: 14px 14px;
+        border-radius: 12px;
+        font-weight: 900;
+        color: color-mix(in oklab, var(--ink), #000 5%);
+      }
+      .menu-list a:hover {
+        background: color-mix(in oklab, var(--ghost), var(--bg));
+      }
+
+      body.no-scroll {
+        overflow: hidden;
+      }
+
+      /* Sections */
+      section {
+        padding: 84px 0;
+        position: relative;
+        border-top: 0;
+      }
+      section.alt {
+        background: linear-gradient(180deg, var(--sec-alt), var(--sec-base));
+      }
+      section.deep {
+        background: linear-gradient(180deg, var(--sec-deep), var(--brand));
+        color: #eaf0ff;
+      }
+      section.deep h2 {
+        color: #fff;
+      }
+      section.darkband {
+        background: linear-gradient(180deg, var(--sec-darkband), #071440);
+        color: #dfe7ff;
+      }
+
+      h1 {
+        font-size: clamp(28px, 4vw, 46px);
+        line-height: 1.08;
+        margin: 0 0 12px;
+      }
+      h2 {
+        font-size: clamp(22px, 3vw, 32px);
+        margin: 0 0 16px;
+      }
+      .subtitle {
+        color: var(--muted);
+        font-size: 18px;
+        margin: 0 0 22px;
+      }
+
+      /* Adaptive transitions */
+      .transition {
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 120px;
+        overflow: hidden;
+        line-height: 0;
+      }
+      .transition svg {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+      .transition.bottom {
+        bottom: -1px;
+      }
+      .transition.top {
+        top: -1px;
+        transform: rotate(180deg);
+      }
+      .transition .fill {
+        fill: var(--fill);
+      }
+      .to-base {
+        --fill: var(--sec-base);
+      }
+      .to-alt {
+        --fill: var(--sec-alt);
+      }
+      .to-deep {
+        --fill: var(--sec-deep);
+      }
+      .to-darkband {
+        --fill: var(--sec-darkband);
+      }
+
+      .hero-visual {
+        height: 360px;
+        border-radius: 24px;
+        border: 1px solid var(--line);
+        box-shadow: var(--shadow);
+        background: radial-gradient(
+            220px 140px at 20% 30%,
+            color-mix(in oklab, var(--brand) 32%, transparent),
+            transparent 60%
+          ),
+          radial-gradient(
+            260px 140px at 85% 40%,
+            color-mix(in oklab, var(--violet) 35%, transparent),
+            transparent 60%
+          ),
+          radial-gradient(
+            540px 280px at 50% 110%,
+            color-mix(in oklab, var(--brand-2) 35%, transparent),
+            transparent 60%
+          ),
+          linear-gradient(
+            135deg,
+            color-mix(in oklab, var(--ghost), var(--bg)),
+            var(--bg)
+          );
+        display: grid;
+        place-items: center;
+        color: #fff;
+        font-weight: 900;
+        letter-spacing: 0.5px;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero-visual .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(255, 255, 255, 0.12);
+        padding: 10px 12px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      .shape {
+        position: absolute;
+        opacity: 0.12;
+        filter: blur(2px);
+      }
+      .shape svg {
+        width: 220px;
+        height: 220px;
+      }
+      .s1 {
+        left: -40px;
+        top: -40px;
+      }
+      .s2 {
+        right: -50px;
+        bottom: -50px;
+      }
+
+      .btns {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-top: 16px;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 16px;
+        border-radius: 12px;
+        font-weight: 900;
+      }
+      .btn.primary {
+        background: linear-gradient(90deg, var(--brand), var(--brand-2));
+        color: #fff;
+      }
+      .btn.secondary {
+        background: var(--bg);
+        border: 1px solid var(--line);
+        color: color-mix(in oklab, var(--ink), #000 10%);
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 32px;
+        align-items: center;
+      }
+      .grid-3 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+
+      .card {
+        background: var(--bg);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        padding: 18px;
+        box-shadow: var(--shadow);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+      .card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 14px 38px
+          color-mix(in oklab, var(--brand) 22%, transparent);
+      }
+      .card h3 {
+        margin: 0 0 8px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .card .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 12px;
+        background: color-mix(in oklab, var(--ghost), var(--bg));
+        padding: 6px 10px;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+      }
+      .more {
+        display: none;
+        color: color-mix(in oklab, var(--ink), #000 15%);
+        margin-top: 10px;
+      }
+      .more.open {
+        display: block;
+      }
+      .more-btn {
+        background: var(--bg);
+        border: 1px solid var(--line);
+        padding: 8px 10px;
+        border-radius: 10px;
+        font-weight: 800;
+        color: color-mix(in oklab, var(--ink), #000 10%);
+      }
+
+      .ba {
+        margin: 14px 0 18px;
+      }
+      .ba-viewport {
+        position: relative;
+        height: 340px;
+        border-radius: 22px;
+        border: 1px solid var(--line);
+        box-shadow: var(--shadow);
+        overflow: hidden;
+        background: linear-gradient(
+          135deg,
+          color-mix(in oklab, var(--ghost), var(--bg)),
+          var(--bg)
+        );
+      }
+      .ba-after,
+      .ba-before {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, #1b2a56, #0a63ff);
+      }
+      .ba-before {
+        clip-path: inset(0 calc(100% - var(--cut, 50%)) 0 0);
+      }
+      .ba-handle {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: var(--cut, 50%);
+        width: 2px;
+        background: rgba(255, 255, 255, 0.8);
+        box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06);
+      }
+      .ba-handle::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+      }
+      .ba-slider {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        cursor: ew-resize;
+      }
+      .ba-caption {
+        margin-top: 10px;
+        font-weight: 800;
+        color: color-mix(in oklab, var(--ink), #000 10%);
+      }
+
+      .gallery-thumbs {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 14px;
+        margin-top: 14px;
+      }
+      .thumb {
+        height: 120px;
+        border-radius: 16px;
+        border: 1px solid var(--line);
+        box-shadow: var(--shadow);
+        position: relative;
+        overflow: hidden;
+        display: grid;
+        place-items: center;
+        cursor: pointer;
+        outline: 0;
+      }
+      .thumb:focus-visible {
+        box-shadow: 0 0 0 3px color-mix(in oklab, var(--brand) 40%, transparent);
+      }
+      .thumb .label {
+        position: absolute;
+        left: 10px;
+        bottom: 10px;
+        background: rgba(0, 0, 0, 0.45);
+        color: #fff;
+        font-weight: 900;
+        padding: 6px 10px;
+        border-radius: 10px;
+      }
+      .grad-1 {
+        background: linear-gradient(
+          135deg,
+          #123 0%,
+          var(--brand) 60%,
+          var(--brand-2) 100%
+        );
+      }
+      .grad-2 {
+        background: linear-gradient(
+          135deg,
+          #201a4a 0%,
+          var(--violet) 60%,
+          var(--brand-2) 100%
+        );
+      }
+      .grad-3 {
+        background: linear-gradient(
+          135deg,
+          #0f2f42 0%,
+          var(--cyan) 60%,
+          var(--brand) 100%
+        );
+      }
+      .grad-4 {
+        background: linear-gradient(
+          135deg,
+          #1f283d 0%,
+          var(--brand-2) 60%,
+          var(--violet) 100%
+        );
+      }
+
+      .reviews-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+      .review-card {
+        background: var(--bg);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 18px;
+        box-shadow: var(--shadow);
+      }
+      .review-head {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 8px;
+      }
+      .avatar {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        font-weight: 900;
+        color: #fff;
+      }
+      .a1 {
+        background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      }
+      .a2 {
+        background: linear-gradient(135deg, var(--violet), var(--brand-2));
+      }
+      .a3 {
+        background: linear-gradient(135deg, var(--cyan), var(--brand));
+      }
+      .stars {
+        color: #ffb703;
+        letter-spacing: 1px;
+        font-size: 14px;
+      }
+      .vehicle {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        color: color-mix(in oklab, var(--ink), #000 20%);
+      }
+      .vehicle .icon {
+        width: 18px;
+        height: 18px;
+        color: var(--brand);
+      }
+      .review-body {
+        color: color-mix(in oklab, var(--ink), #000 10%);
+        line-height: 1.5;
+        margin: 8px 0 6px;
+      }
+      .clamp {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      .expand {
+        background: var(--bg);
+        border: 1px solid var(--line);
+        padding: 8px 10px;
+        border-radius: 10px;
+        font-weight: 800;
+        color: color-mix(in oklab, var(--ink), #000 10%);
+      }
+      .owner-reply {
+        margin-top: 10px;
+        border-top: 1px dashed var(--line);
+        padding-top: 10px;
+        color: color-mix(in oklab, var(--ink), #000 15%);
+        background: linear-gradient(
+          0deg,
+          color-mix(in oklab, var(--ghost), var(--bg)),
+          var(--bg)
+        );
+        border-radius: 10px;
+      }
+
+      .contact {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .contact .card ul {
+        list-style: none;
+        padding: 0;
+        margin: 10px 0 0;
+      }
+      .contact .card li {
+        margin: 8px 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .big {
+        font-size: 20px;
+        font-weight: 900;
+      }
+
+      .modal {
+        position: fixed;
+        inset: 0;
+        display: none;
+        align-items: center;
+        justify-content: center;
+      }
+      .modal.open {
+        display: flex;
+      }
+      .overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.55);
+        backdrop-filter: blur(3px);
+      }
+      .dialog {
+        position: relative;
+        z-index: 1;
+        width: min(680px, 92vw);
+        background: var(--bg);
+        border-radius: 16px;
+        border: 1px solid var(--line);
+        box-shadow: var(--shadow);
+        padding: 20px;
+      }
+      .dialog .close {
+        margin-left: auto;
+        background: var(--ghost);
+        border: 1px solid var(--line);
+        padding: 8px 12px;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+      label {
+        font-weight: 700;
+        font-size: 14px;
+      }
+      input,
+      select,
+      textarea {
+        width: 100%;
+        padding: 10px 12px;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: var(--bg);
+        color: var(--ink);
+      }
+      textarea {
+        min-height: 110px;
+        resize: vertical;
+      }
+      form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        margin-top: 14px;
+      }
+      form .full {
+        grid-column: 1 / -1;
+      }
+
+      footer {
+        padding: 32px 0;
+        border-top: 1px solid var(--line);
+        color: color-mix(in oklab, var(--ink), #000 30%);
+        font-size: 14px;
+      }
+      .fade-up {
+        opacity: 0;
+        transform: translateY(12px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+      .fade-up.revealed {
+        opacity: 1;
+        transform: none;
+      }
+      @media (max-width: 980px) {
+        .links {
+          display: none;
+        }
+        .hamburger {
+          display: flex;
+        }
+        .brand-name {
+          display: none;
+        }
+        .hero-grid,
+        .grid-3,
+        .gallery,
+        .reviews-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-texture">
+    <header>
+      <div class="container nav">
+        <div class="brand">
+          <div class="logo">NW</div>
+          <div class="brand-name">NW Auto Supreme</div>
+        </div>
+        <nav class="links">
+          <a href="#services">Services</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#reviews">Reviews</a>
+          <a href="#contact">Contact</a>
+          <a class="cta-call" href="tel:+14259199472"
+            ><svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M6.6 10.8a15 15 0 006.6 6.6l2.2-2.2a1.5 1.5 0 011.5-.36c1.62.54 3.36.84 5.1.84a1 1 0 011 1V20a2 2 0 01-2 2C10.07 22 2 13.93 2 4a2 2 0 012-2h3.32a1 1 0 011 1c0 1.74.3 3.48.84 5.1.16.5.03 1.05-.36 1.45l-2.2 2.25z"
+              /></svg
+            >Call</a
+          >
+          <button
+            id="modeToggle"
+            class="ham-btn"
+            aria-label="Toggle theme"
+            title="Toggle theme"
+            style="width: 42px; height: 42px"
+          >
+            <svg id="themeIcon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 4a8 8 0 100 16 8 8 0 000-16z" />
+            </svg>
+          </button>
+        </nav>
+        <div class="hamburger">
+          <a class="ham-btn" href="tel:+14259199472" aria-label="Call"
+            ><svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M6.6 10.8a15 15 0 006.6 6.6l2.2-2.2a1.5 1.5 0 011.5-.36c1.62.54 3.36.84 5.1.84a1 1 0 011 1V20a2 2 0 01-2 2C10.07 22 2 13.93 2 4a2 2 0 012-2h3.32a1 1 0 011 1c0 1.74.3 3.48.84 5.1.16.5.03 1.05-.36 1.45l-2.2 2.25z"
+              /></svg
+          ></a>
+          <button class="ham-btn" id="openDrawer" aria-label="Open menu">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Drawer outside header -->
+    <div class="drawer" id="drawer" aria-hidden="true">
+      <div class="shade" id="closeDrawer"></div>
+      <div class="panel">
+        <div class="topbar">
+          <button class="ham-btn" id="xDrawer" aria-label="Close menu">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M6 6l12 12M18 6L6 18"
+                stroke="currentColor"
+                stroke-width="2"
+              />
+            </svg>
+          </button>
+        </div>
+        <div class="menu-list">
+          <a href="#services" data-close>Services</a>
+          <a href="#gallery" data-close>Gallery</a>
+          <a href="#reviews" data-close>Reviews</a>
+          <a href="#contact" data-close>Contact</a>
+        </div>
+        <div style="display: flex; gap: 10px; margin-top: 8px">
+          <button
+            id="modeToggleMobile"
+            class="ham-btn"
+            aria-label="Toggle theme"
+            title="Toggle theme"
+          >
+            <svg id="themeIconMobile" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 4a8 8 0 100 16 8 8 0 000-16z" />
+            </svg>
+          </button>
+          <a
+            href="tel:+14259199472"
+            class="cta-call"
+            style="flex: 1; justify-content: center"
+            data-close
+            ><svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M6.6 10.8a15 15 0 006.6 6.6l2.2-2.2a1.5 1.5 0 011.5-.36c1.62.54 3.36.84 5.1.84a1 1 0 011 1V20a2 2 0 01-2 2C10.07 22 2 13.93 2 4a2 2 0 012-2h3.32a1 1 0 011 1c0 1.74.3 3.48.84 5.1.16.5.03 1.05-.36 1.45l-2.2 2.25z"
+              /></svg
+            >Call (425) 919-9472</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <main>
+      <section class="hero fade-up" id="hero">
+        <div class="container hero-grid">
+          <div>
+            <h1>Window Tint, Wraps, Leather & PPF done right</h1>
+            <p class="subtitle">
+              Premium materials. Clean installs. Same-day appointments when
+              available.
+            </p>
+            <div class="btns">
+              <a class="btn primary" href="tel:+14259199472"
+                ><svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M6.6 10.8a15 15 0 006.6 6.6l2.2-2.2a1.5 1.5 0 011.5-.36c1.62.54 3.36.84 5.1.84a1 1 0 011 1V20a2 2 0 01-2 2C10.07 22 2 13.93 2 4a2 2 0 012-2h3.32a1 1 0 011 1c0 1.74.3 3.48.84 5.1.16.5.03 1.05-.36 1.45l-2.2 2.25z"
+                  /></svg
+                >Call to Set Appointment</a
+              >
+              <button class="btn secondary" data-open-modal>
+                <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M4 4h16v2H4V4zm0 6h16v2H4v-2zm0 6h10v2H4v-2z" /></svg
+                >Request a Quote
+              </button>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <span class="badge"
+              ><svg class="icon" viewBox="0 0 24 24" fill="#fff">
+                <path
+                  d="M3 16l2-6a3 3 0 012.83-2.1H16a3 3 0 012.83 2.1l2 6H3z"
+                /></svg
+              >Premium films • PPF • Leather</span
+            >
+            <div class="shape s1">
+              <svg viewBox="0 0 200 200">
+                <defs>
+                  <linearGradient id="gA" x1="0" x2="1">
+                    <stop offset="0%" stop-color="var(--brand)" />
+                    <stop offset="100%" stop-color="var(--violet)" />
+                  </linearGradient>
+                </defs>
+                <circle cx="100" cy="100" r="90" fill="url(#gA)" />
+              </svg>
+            </div>
+            <div class="shape s2">
+              <svg viewBox="0 0 200 200">
+                <defs>
+                  <linearGradient id="gB" x1="0" x2="1">
+                    <stop offset="0%" stop-color="var(--cyan)" />
+                    <stop offset="100%" stop-color="var(--brand-2)" />
+                  </linearGradient>
+                </defs>
+                <rect
+                  x="40"
+                  y="40"
+                  width="120"
+                  height="120"
+                  rx="30"
+                  fill="url(#gB)"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div class="transition bottom to-alt">
+          <svg preserveAspectRatio="none" viewBox="0 0 1440 120">
+            <path
+              class="fill"
+              d="M0,120 C260,20 640,140 960,40 C1200,-20 1300,75 1440,30 L1440,120 L0,120 Z"
+            />
+          </svg>
+        </div>
+      </section>
+
+      <section id="services" class="alt fade-up">
+        <div class="transition top to-alt">
+          <svg preserveAspectRatio="none" viewBox="0 0 1440 120">
+            <path
+              class="fill"
+              d="M0,120 C260,20 640,140 960,40 C1200,-20 1300,75 1440,30 L1440,120 L0,120 Z"
+            />
+          </svg>
+        </div>
+        <div class="container">
+          <h2>Services</h2>
+          <div class="grid-3">
+            <div class="card">
+              <h3>
+                <span class="pill"
+                  ><svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M3 16l2-6a3 3 0 012.83-2.1H16a3 3 0 012.83 2.1l2 6H3z"
+                    /></svg
+                  >Tint</span
+                >Window Tinting
+              </h3>
+              <p class="muted">
+                Factory-match, ceramic, full or partial. Removal and repairs.
+              </p>
+              <button class="more-btn" data-more="#more-tint">
+                More details
+              </button>
+              <div class="more" id="more-tint">
+                Ceramic IR rejection, lifetime warranty options, legal shade
+                guidance, and edge coverage to OEM spec.
+              </div>
+            </div>
+            <div class="card">
+              <h3>
+                <span class="pill"
+                  ><svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M3 6h18v4H3zM3 12h18v6H3z" /></svg
+                  >Wraps</span
+                >Vehicle Wraps
+              </h3>
+              <p class="muted">
+                Color changes, chrome deletes, branding. Removal available.
+              </p>
+              <button class="more-btn" data-more="#more-wrap">
+                More details
+              </button>
+              <div class="more" id="more-wrap">
+                3M, Avery, Oracal supported. Panel-by-panel disassembly, edge
+                wrapping, and aftercare instructions.
+              </div>
+            </div>
+            <div class="card">
+              <h3>
+                <span class="pill"
+                  ><svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2l9 6-9 6-9-6 9-6z" /></svg
+                  >PPF</span
+                >Paint Protection Film
+              </h3>
+              <p class="muted">
+                Front end to full-body coverage. Invisible protection.
+              </p>
+              <button class="more-btn" data-more="#more-ppf">
+                More details
+              </button>
+              <div class="more" id="more-ppf">
+                Self-healing films, pattern-cut for your VIN, wrapped edges
+                where possible, and ceramic top coat options.
+              </div>
+            </div>
+            <div class="card">
+              <h3>
+                <span class="pill"
+                  ><svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M6 3h12v12a6 6 0 11-12 0V3z" /></svg
+                  >Leather</span
+                >Leather & Upholstery
+              </h3>
+              <p class="muted">
+                Alea custom stitching, factory-match replacements.
+              </p>
+              <button class="more-btn" data-more="#more-leather">
+                More details
+              </button>
+              <div class="more" id="more-leather">
+                Perforation patterns, logos, contrast stitching, seat rebuilds,
+                and foam repairs for older vehicles.
+              </div>
+            </div>
+            <div class="card">
+              <h3>
+                <span class="pill"
+                  ><svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M7 2h10v4H7zM5 8h14a3 3 0 013 3v7a2 2 0 01-2 2H4a2 2 0 01-2-2v-7a3 3 0 013-3z"
+                    /></svg
+                  >Comfort</span
+                >Heated Seats
+              </h3>
+              <p class="muted">
+                Add warmth to cloth or leather. OEM-style switches.
+              </p>
+              <button class="more-btn" data-more="#more-heat">
+                More details
+              </button>
+              <div class="more" id="more-heat">
+                Two-stage heat, fused lines, hidden harness routing, and
+                factory-look switch placement.
+              </div>
+            </div>
+            <div class="card">
+              <h3>
+                <span class="pill"
+                  ><svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M4 4h16v16H4zM7 7h10v10H7z" /></svg
+                  >Custom</span
+                >Custom Interiors
+              </h3>
+              <p class="muted">
+                Trim accents, logos, diamond stitching and more.
+              </p>
+              <button class="more-btn" data-more="#more-custom">
+                More details
+              </button>
+              <div class="more" id="more-custom">
+                Dash wraps, steering wheels, logo embroidery, and unique
+                perforation patterns to match your style.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="transition bottom to-deep">
+          <svg preserveAspectRatio="none" viewBox="0 0 1440 120">
+            <path
+              class="fill"
+              d="M0,120 C220,40 520,0 780,40 C1040,80 1240,10 1440,40 L1440,120 L0,120 Z"
+            />
+          </svg>
+        </div>
+      </section>
+
+      <section class="deep">
+        <div class="transition top to-deep">
+          <svg preserveAspectRatio="none" viewBox="0 0 1440 120">
+            <path
+              class="fill"
+              d="M0,120 C220,40 520,0 780,40 C1040,80 1240,10 1440,40 L1440,120 L0,120 Z"
+            />
+          </svg>
+        </div>
+        <div class="container">
+          <h2>Pro materials. Clean installs. Guaranteed.</h2>
+          <p>
+            We use ceramic films, trusted wrap brands, and OEM-grade leather.
+            Ask about lifetime tint warranties and discounted bundles.
+          </p>
+        </div>
+        <div class="transition bottom to-base">
+          <svg preserveAspectRatio="none" viewBox="0 0 1440 120">
+            <path
+              class="fill"
+              d="M0,120 C260,20 640,140 960,40 C1200,-20 1300,75 1440,30 L1440,120 L0,120 Z"
+            />
+          </svg>
+        </div>
+      </section>
+
+      <section id="gallery" class="fade-up">
+        <div class="transition top to-base">
+          <svg preserveAspectRatio="none" viewBox="0 0 1440 120">
+            <path
+              class="fill"
+              d="M0,120 C260,20 640,140 960,40 C1200,-20 1300,75 1440,30 L1440,120 L0,120 Z"
+            />
+          </svg>
+        </div>
+        <div class="container">
+          <h2>Gallery</h2>
+          <div class="ba">
+            <div class="ba-viewport" id="ba">
+              <div class="ba-after" id="baAfter"></div>
+              <div class="ba-before" id="baBefore"></div>
+              <input
+                type="range"
+                id="baSlider"
+                class="ba-slider"
+                min="0"
+                max="100"
+                value="50"
+                aria-label="Before after slider"
+              />
+              <div class="ba-handle" id="baHandle"></div>
+            </div>
+            <div class="ba-caption">
+              <span id="baLabel">Window Tint • 35% on front, 20% rear</span>
+            </div>
+          </div>
+
+          <div class="gallery-thumbs" id="thumbs">
+            <button class="thumb grad-1" data-key="tint">
+              <span class="label">Tint</span>
+            </button>
+            <button class="thumb grad-2" data-key="wraps">
+              <span class="label">Wraps</span>
+            </button>
+            <button class="thumb grad-3" data-key="ppf">
+              <span class="label">PPF</span>
+            </button>
+            <button class="thumb grad-4" data-key="leather">
+              <span class="label">Leather</span>
+            </button>
+            <button class="thumb grad-2" data-key="chrome">
+              <span class="label">Chrome delete</span>
+            </button>
+            <button class="thumb grad-1" data-key="heaters">
+              <span class="label">Heaters</span>
+            </button>
+            <button class="thumb grad-3" data-key="fleet">
+              <span class="label">Fleet</span>
+            </button>
+            <button class="thumb grad-4" data-key="custom">
+              <span class="label">Custom</span>
+            </button>
+          </div>
+          <div class="btns" style="margin-top: 16px">
+            <button class="btn secondary" id="viewMore">View more</button>
+          </div>
+        </div>
+        <div class="transition bottom to-darkband">
+          <svg preserveAspectRatio="none" viewBox="0 0 1440 120">
+            <path
+              class="fill"
+              d="M0,120 C220,40 520,0 780,40 C1040,80 1240,10 1440,40 L1440,120 L0,120 Z"
+            />
+          </svg>
+        </div>
+      </section>
+
+      <section class="darkband">
+        <div class="transition top to-darkband">
+          <svg preserveAspectRatio="none" viewBox="0 0 1440 120">
+            <path
+              class="fill"
+              d="M0,120 C220,40 520,0 780,40 C1040,80 1240,10 1440,40 L1440,120 L0,120 Z"
+            />
+          </svg>
+        </div>
+        <div class="container">
+          <h2>Same-day appointments when available</h2>
+          <p>
+            Call for bay availability. We’ll give you a realistic window and
+            stick to it.
+          </p>
+        </div>
+        <div class="transition bottom to-alt">
+          <svg preserveAspectRatio="none" viewBox="0 0 1440 120">
+            <path
+              class="fill"
+              d="M0,120 C260,20 640,140 960,40 C1200,-20 1300,75 1440,30 L1440,120 L0,120 Z"
+            />
+          </svg>
+        </div>
+      </section>
+
+      <section id="reviews" class="fade-up alt">
+        <div class="transition top to-alt">
+          <svg preserveAspectRatio="none" viewBox="0 0 1440 120">
+            <path
+              class="fill"
+              d="M0,120 C260,20 640,140 960,40 C1200,-20 1300,75 1440,30 L1440,120 L0,120 Z"
+            />
+          </svg>
+        </div>
+        <div class="container">
+          <h2>Recent results</h2>
+          <div class="reviews-grid">
+            <article class="review-card">
+              <div class="review-head">
+                <div class="avatar a1">JL</div>
+                <div>
+                  <div style="font-weight: 900">
+                    Jamie L. <span class="stars">★★★★★</span>
+                  </div>
+                  <div class="vehicle">
+                    <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                      <path
+                        d="M3 13l1-3c.3-.9 1.2-1.5 2.1-1.5h7.5c.9 0 1.8.6 2.1 1.5l1 3H21a1 1 0 110 2h-1.2a2.5 2.5 0 11-5 0H9.2a2.5 2.5 0 11-5 0H3a1 1 0 110-2h0z"
+                      />
+                    </svg>
+                    2024 Honda Accord • Tint + Leather
+                  </div>
+                </div>
+              </div>
+              <p class="review-body clamp" data-clamp>
+                My Accord looks brand new. Edges are tight and no dust trapped.
+                They also upgraded me to Alea leather and it feels factory.
+                Turnaround was faster than expected and the price was fair.
+              </p>
+              <button class="expand" data-expand>Read more</button>
+              <div class="owner-reply">
+                <strong>Owner reply</strong> · Appreciate you, Jamie. If you
+                want a ceramic upgrade later, we’ll credit part of today’s
+                install.
+              </div>
+            </article>
+            <article class="review-card">
+              <div class="review-head">
+                <div class="avatar a2">KR</div>
+                <div>
+                  <div style="font-weight: 900">
+                    Kevin R. <span class="stars">★★★★★</span>
+                  </div>
+                  <div class="vehicle">
+                    <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                      <path
+                        d="M3 13l1-3c.3-.9 1.2-1.5 2.1-1.5h7.5c.9 0 1.8.6 2.1 1.5l1 3H21a1 1 0 110 2h-1.2a2.5 2.5 0 11-5 0H9.2a2.5 2.5 0 11-5 0H3a1 1 0 110-2h0z"
+                      />
+                    </svg>
+                    Challenger Hellcat • PPF
+                  </div>
+                </div>
+              </div>
+              <p class="review-body clamp" data-clamp>
+                Front clip film is super clean. Zero bubbles, solid edge
+                coverage, and clear aftercare steps. Coming back for chrome
+                delete.
+              </p>
+              <button class="expand" data-expand>Read more</button>
+              <div class="owner-reply">
+                <strong>Owner reply</strong> · Thanks Kevin. We’ll bundle
+                pricing when you’re ready for the delete.
+              </div>
+            </article>
+            <article class="review-card">
+              <div class="review-head">
+                <div class="avatar a3">SP</div>
+                <div>
+                  <div style="font-weight: 900">
+                    Sara P. <span class="stars">★★★★★</span>
+                  </div>
+                  <div class="vehicle">
+                    <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                      <path
+                        d="M3 13l1-3c.3-.9 1.2-1.5 2.1-1.5h7.5c.9 0 1.8.6 2.1 1.5l1 3H21a1 1 0 110 2h-1.2a2.5 2.5 0 11-5 0H9.2a2.5 2.5 0 11-5 0H3a1 1 0 110-2h0z"
+                      />
+                    </svg>
+                    2023 Honda Civic • Heated seats
+                  </div>
+                </div>
+              </div>
+              <p class="review-body clamp" data-clamp>
+                Switches look OEM and wiring is tidy. Winter commute just got
+                better. Scheduling tint next.
+              </p>
+              <button class="expand" data-expand>Read more</button>
+              <div class="owner-reply">
+                <strong>Owner reply</strong> · Appreciate it, Sara. Ask for our
+                ceramic film upgrade when you’re ready for tint.
+              </div>
+            </article>
+          </div>
+        </div>
+        <div class="transition bottom to-alt">
+          <svg preserveAspectRatio="none" viewBox="0 0 1440 120">
+            <path
+              class="fill"
+              d="M0,120 C260,20 640,140 960,40 C1200,-20 1300,75 1440,30 L1440,120 L0,120 Z"
+            />
+          </svg>
+        </div>
+      </section>
+
+      <section id="contact" class="alt fade-up">
+        <div class="transition top to-alt">
+          <svg preserveAspectRatio="none" viewBox="0 0 1440 120">
+            <path
+              class="fill"
+              d="M0,120 C260,20 640,140 960,40 C1200,-20 1300,75 1440,30 L1440,120 L0,120 Z"
+            />
+          </svg>
+        </div>
+        <div class="container">
+          <h2>Contact & Appointments</h2>
+          <div class="contact">
+            <div class="card">
+              <p class="big">
+                Call now: <a href="tel:+14259199472">(425) 919-9472</a>
+              </p>
+              <ul>
+                <li>
+                  <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M6 2h12v4H6zM4 8h16a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2v-7a3 3 0 013-3z"
+                    /></svg
+                  ><strong>Hours:</strong> Mon–Sat, 9:00 AM – 5:30 PM
+                </li>
+                <li>
+                  <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M12 2a7 7 0 017 7c0 5-7 13-7 13S5 14 5 9a7 7 0 017-7zm0 9a2 2 0 100-4 2 2 0 000 4z"
+                    /></svg
+                  ><strong>Service Area:</strong> Mobile installs by appointment
+                </li>
+                <li>
+                  <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M4 4h16v16H4zM6 8l6 4 6-4" /></svg
+                  ><strong>Email:</strong>
+                  <a href="mailto:info@nwautosupreme.com"
+                    >info@nwautosupreme.com</a
+                  >
+                </li>
+              </ul>
+              <div class="btns" style="margin-top: 16px">
+                <a class="btn primary" href="tel:+14259199472"
+                  >Call to Set Appointment</a
+                ><button class="btn secondary" data-open-modal>
+                  Request a Quote
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="transition bottom to-base">
+          <svg preserveAspectRatio="none" viewBox="0 0 1440 120">
+            <path
+              class="fill"
+              d="M0,120 C260,20 640,140 960,40 C1200,-20 1300,75 1440,30 L1440,120 L0,120 Z"
+            />
+          </svg>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        © <span id="year"></span> NW Auto Supreme. All rights reserved.
+      </div>
+    </footer>
+
+    <div
+      class="modal"
+      id="quoteModal"
+      aria-hidden="true"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="quoteTitle"
+    >
+      <div class="overlay" data-close-modal></div>
+      <div class="dialog">
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+          "
+        >
+          <h3 id="quoteTitle" style="margin: 0; font-size: 22px">
+            Request a Quote
+          </h3>
+          <button
+            class="close"
+            type="button"
+            data-close-modal
+            aria-label="Close quote form"
+          >
+            Close
+          </button>
+        </div>
+        <form id="quoteForm" action="#" method="post" novalidate>
+          <div>
+            <label for="name">Full name</label
+            ><input id="name" name="name" autocomplete="name" required />
+          </div>
+          <div>
+            <label for="phone">Phone</label
+            ><input
+              id="phone"
+              name="phone"
+              inputmode="tel"
+              autocomplete="tel"
+              required
+            />
+          </div>
+          <div>
+            <label for="email">Email</label
+            ><input id="email" name="email" type="email" autocomplete="email" />
+          </div>
+          <div>
+            <label for="vehicle">Year / Make / Model</label
+            ><input
+              id="vehicle"
+              name="vehicle"
+              placeholder="2024 Honda Civic"
+              required
+            />
+          </div>
+          <div>
+            <label for="service">Service</label>
+            <select id="service" name="service" required>
+              <option value="">Select…</option>
+              <option>Window Tint</option>
+              <option>Vehicle Wrap</option>
+              <option>Paint Protection Film</option>
+              <option>Leather / Upholstery</option>
+              <option>Heated Seats</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div>
+            <label for="date">Preferred date</label
+            ><input id="date" name="preferred_date" type="date" />
+          </div>
+          <div class="full">
+            <label for="details">Notes</label
+            ><textarea
+              id="details"
+              name="details"
+              placeholder="Tell us what you’d like done and any goals (shade, brand, budget)."
+            ></textarea>
+          </div>
+          <input
+            type="text"
+            name="company"
+            style="display: none"
+            tabindex="-1"
+            autocomplete="off"
+            aria-hidden="true"
+          />
+          <div class="form-actions full">
+            <button class="btn primary" type="submit">Send Request</button
+            ><button class="btn secondary" type="button" data-close-modal>
+              Cancel</button
+            ><span
+              id="formMsg"
+              class="muted"
+              role="status"
+              aria-live="polite"
+            ></span>
+          </div>
+        </form>
+        <p
+          class="danger"
+          id="errorMsg"
+          aria-live="assertive"
+          style="display: none; margin-top: 8px"
+        >
+          Please complete required fields.
+        </p>
+      </div>
+    </div>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+      function setThemeIcon() {
+        const isDark = document.body.classList.contains("dark");
+        const sun =
+          '<circle cx="12" cy="12" r="5"/><g><line x1="12" y1="1" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="23"/><line x1="1" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="23" y2="12"/><line x1="4.2" y1="4.2" x2="6.3" y2="6.3"/><line x1="17.7" y1="17.7" x2="19.8" y2="19.8"/><line x1="4.2" y1="19.8" x2="6.3" y2="17.7"/><line x1="17.7" y1="6.3" x2="19.8" y2="4.2"/></g>';
+        const moon = '<path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>';
+        document.getElementById("themeIcon").innerHTML = isDark ? sun : moon;
+        const m = document.getElementById("themeIconMobile");
+        if (m) m.innerHTML = isDark ? sun : moon;
+      }
+      function toggleTheme() {
+        document.body.classList.toggle("dark");
+        setThemeIcon();
+      }
+      document
+        .getElementById("modeToggle")
+        .addEventListener("click", toggleTheme);
+
+      const drawer = document.getElementById("drawer");
+      document
+        .getElementById("modeToggleMobile")
+        ?.addEventListener("click", () => {
+          toggleTheme();
+          drawer.classList.remove("open");
+          drawer.setAttribute("aria-hidden", "true");
+          document.body.classList.remove("no-scroll");
+        });
+      setThemeIcon();
+
+      const openDrawer = document.getElementById("openDrawer");
+      const closeTargets = [
+        document.getElementById("closeDrawer"),
+        document.getElementById("xDrawer"),
+      ];
+      openDrawer?.addEventListener("click", () => {
+        drawer.classList.add("open");
+        drawer.setAttribute("aria-hidden", "false");
+        document.body.classList.add("no-scroll");
+      });
+      closeTargets.forEach((el) =>
+        el?.addEventListener("click", () => {
+          drawer.classList.remove("open");
+          drawer.setAttribute("aria-hidden", "true");
+          document.body.classList.remove("no-scroll");
+        })
+      );
+      drawer.querySelectorAll("[data-close]").forEach((a) =>
+        a.addEventListener("click", () => {
+          drawer.classList.remove("open");
+          drawer.setAttribute("aria-hidden", "true");
+          document.body.classList.remove("no-scroll");
+        })
+      );
+
+      const modal = document.getElementById("quoteModal");
+      const openBtns = document.querySelectorAll("[data-open-modal]");
+      const closeEls = document.querySelectorAll("[data-close-modal]");
+      let lastFocus = null;
+      function openModal() {
+        lastFocus = document.activeElement;
+        modal.classList.add("open");
+        modal.setAttribute("aria-hidden", "false");
+        document.getElementById("name").focus();
+      }
+      function closeModal() {
+        modal.classList.remove("open");
+        modal.setAttribute("aria-hidden", "true");
+        if (lastFocus) lastFocus.focus();
+      }
+      openBtns.forEach((b) => b.addEventListener("click", openModal));
+      closeEls.forEach((el) => el.addEventListener("click", closeModal));
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) closeModal();
+      });
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && modal.classList.contains("open"))
+          closeModal();
+      });
+
+      const form = document.getElementById("quoteForm");
+      const msg = document.getElementById("formMsg");
+      const err = document.getElementById("errorMsg");
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        err.style.display = "none";
+        msg.textContent = "";
+        const required = ["name", "phone", "vehicle", "service"];
+        const valid = required.every(
+          (id) => document.getElementById(id).value.trim() !== ""
+        );
+        if (!valid) {
+          err.style.display = "block";
+          return;
+        }
+        const body = encodeURIComponent(
+          `Name: ${form.name.value}\nPhone: ${form.phone.value}\nEmail: ${form.email.value}\nVehicle: ${form.vehicle.value}\nService: ${form.service.value}\nPreferred date: ${form.preferred_date.value}\nNotes: ${form.details.value}`
+        );
+        window.location.href = `mailto:info@nwautosupreme.com?subject=Quote%20Request&body=${body}`;
+        msg.textContent = "Opening your email app…";
+        setTimeout(() => {
+          document.getElementById("quoteModal").classList.remove("open");
+        }, 400);
+        form.reset();
+      });
+
+      document.querySelectorAll("[data-expand]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const body = btn.previousElementSibling;
+          const clamped = body.hasAttribute("data-clamp");
+          if (clamped) {
+            body.removeAttribute("data-clamp");
+            body.classList.remove("clamp");
+            btn.textContent = "Show less";
+          } else {
+            body.setAttribute("data-clamp", "");
+            body.classList.add("clamp");
+            btn.textContent = "Read more";
+          }
+        });
+      });
+
+      document.querySelectorAll("[data-more]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const el = document.querySelector(btn.getAttribute("data-more"));
+          el.classList.toggle("open");
+          btn.textContent = el.classList.contains("open")
+            ? "Show less"
+            : "More details";
+        });
+      });
+
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("revealed");
+              io.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.12 }
+      );
+      document.querySelectorAll(".fade-up").forEach((el) => io.observe(el));
+
+      // --- Before/After slider + presets ---
+      const ba = document.getElementById("ba");
+      const baBefore = document.getElementById("baBefore");
+      const baAfter = document.getElementById("baAfter");
+      const baHandle = document.getElementById("baHandle");
+      const baSlider = document.getElementById("baSlider");
+      const baLabel = document.getElementById("baLabel");
+
+      function setCut(p) {
+        ba.style.setProperty("--cut", p + "%");
+        baHandle.style.left = p + "%";
+      }
+      baSlider.addEventListener("input", (e) => setCut(e.target.value));
+      setCut(50);
+
+      const presets = {
+        tint: {
+          label: "Window Tint • 35% on front, 20% rear",
+          before: "linear-gradient(135deg,#a6b6d6,#eaf0ff)",
+          after: "linear-gradient(135deg,rgba(5,25,60,.9),rgba(15,35,85,.9))",
+        },
+        wraps: {
+          label: "Wrap • Satin blue over OEM paint",
+          before: "linear-gradient(135deg,#343a40,#8a8f96)",
+          after: "linear-gradient(135deg,#0A63FF,#3B82F6)",
+        },
+        ppf: {
+          label: "PPF • Front clip protection",
+          before: "linear-gradient(135deg,#d9e3ff,#ffffff)",
+          after:
+            "linear-gradient(135deg,rgba(230,240,255,.8),rgba(255,255,255,.95))",
+        },
+        leather: {
+          label: "Leather • Alea custom diamond stitch",
+          before: "linear-gradient(135deg,#b7b7b7,#e6e6e6)",
+          after: "linear-gradient(135deg,#111,#444)",
+        },
+        chrome: {
+          label: "Chrome delete • Gloss black trim",
+          before: "linear-gradient(135deg,#c8d2e3,#f4f7ff)",
+          after: "linear-gradient(135deg,#0f172a,#1e2a44)",
+        },
+        heaters: {
+          label: "Heated seats • Factory-look switch",
+          before: "linear-gradient(135deg,#d7dee9,#ffffff)",
+          after: "linear-gradient(135deg,#273042,#4a5a7a)",
+        },
+        fleet: {
+          label: "Fleet • Vinyl branding application",
+          before: "linear-gradient(135deg,#e6f2ff,#ffffff)",
+          after: "linear-gradient(135deg,#0A63FF,#00E0FF)",
+        },
+        custom: {
+          label: "Custom • Two-tone interior accents",
+          before: "linear-gradient(135deg,#f2f2f2,#ffffff)",
+          after: "linear-gradient(135deg,#7C3AED,#3B82F6)",
+        },
+      };
+
+      function applyPreset(key) {
+        const p = presets[key] || presets.tint;
+        baBefore.style.background = p.after; // what reveals when slider to the right
+        baAfter.style.background = p.before; // base state
+        baLabel.textContent = p.label;
+        setCut(50);
+      }
+      applyPreset("tint");
+
+      document.getElementById("thumbs").addEventListener("click", (e) => {
+        const btn = e.target.closest("[data-key]");
+        if (!btn) return;
+        applyPreset(btn.dataset.key);
+      });
+
+      document.getElementById("viewMore").addEventListener("click", (e) => {
+        e.preventDefault();
+        // Placeholder: intentionally no action yet
+      });
+    </script>
+  </body>
+</html>

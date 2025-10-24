@@ -1,0 +1,312 @@
+/* ---------- Layout: header/nav, sections, grids, footer, transitions ---------- */
+
+/* Header & Nav */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 80;
+  background: color-mix(in oklab, var(--bg), #fff 4%);
+  backdrop-filter: saturate(140%) blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+}
+.logo {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  color: #fff;
+  display: grid;
+  place-items: center;
+  background: conic-gradient(
+    from 140deg at 60% 40%,
+    var(--brand),
+    var(--brand-2),
+    var(--violet),
+    var(--brand)
+  );
+  box-shadow: var(--shadow);
+}
+.brand-name {
+  letter-spacing: 0.2px;
+}
+.links {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.links a {
+  font-weight: 700;
+  color: color-mix(in oklab, var(--ink), #000 10%);
+  padding: 8px 10px;
+  border-radius: 10px;
+}
+.links a:hover {
+  background: color-mix(in oklab, var(--ghost), var(--bg));
+}
+.cta-call {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(90deg, var(--brand), var(--brand-2));
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+.hamburger {
+  display: none;
+  align-items: center;
+  gap: 10px;
+}
+.ham-btn {
+  background: color-mix(in oklab, var(--ghost), var(--bg));
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+.ham-btn svg {
+  width: 22px;
+  height: 22px;
+  color: color-mix(in oklab, var(--ink), #000 10%);
+}
+
+@media (max-width: 980px) {
+  .links {
+    display: none;
+  }
+  .hamburger {
+    display: flex;
+  }
+  .brand-name {
+    display: none;
+  }
+}
+
+/* Drawer (mobile menu) */
+.drawer {
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 2000;
+}
+.drawer.open {
+  display: block;
+}
+.drawer .shade {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+}
+.drawer .panel {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: min(84vw, 380px);
+  background: linear-gradient(
+    180deg,
+    color-mix(in oklab, var(--bg), #fff 4%),
+    color-mix(in oklab, var(--ghost), var(--bg))
+  );
+  border-left: 1px solid color-mix(in oklab, var(--line), #000 6%);
+  box-shadow: -12px 0 30px rgba(0, 0, 0, 0.22);
+  padding: 18px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.drawer .topbar {
+  display: flex;
+  justify-content: flex-end;
+}
+.menu-list {
+  background: linear-gradient(
+    180deg,
+    color-mix(in oklab, var(--ghost), #fff 10%),
+    color-mix(in oklab, var(--ghost-2), var(--bg))
+  );
+  padding: 10px;
+  border-radius: 16px;
+  box-shadow: 0 8px 18px color-mix(in oklab, var(--brand) 16%, transparent);
+}
+.menu-list a {
+  display: block;
+  padding: 14px;
+  border-radius: 12px;
+  font-weight: 900;
+  color: color-mix(in oklab, var(--ink), #000 5%);
+}
+.menu-list a:hover {
+  background: color-mix(in oklab, var(--ghost), var(--bg));
+}
+body.no-scroll {
+  overflow: hidden;
+}
+
+/* Sections */
+section {
+  padding: 84px 0;
+  position: relative;
+  border-top: 0;
+}
+section.alt {
+  background: linear-gradient(180deg, var(--sec-alt), var(--sec-base));
+}
+section.deep {
+  background: linear-gradient(180deg, var(--sec-deep), var(--brand));
+  color: #eaf0ff;
+}
+section.deep h2 {
+  color: #fff;
+}
+section.darkband {
+  background: linear-gradient(180deg, var(--sec-darkband), #071440);
+  color: #dfe7ff;
+}
+
+/* Section transitions (waves) */
+.transition {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 120px;
+  overflow: hidden;
+  line-height: 0;
+}
+.transition svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.transition.bottom {
+  bottom: -1px;
+}
+.transition.top {
+  top: -1px;
+  transform: rotate(180deg);
+}
+.transition .fill {
+  fill: var(--fill);
+}
+.to-base {
+  --fill: var(--sec-base);
+}
+.to-alt {
+  --fill: var(--sec-alt);
+}
+.to-deep {
+  --fill: var(--sec-deep);
+}
+.to-darkband {
+  --fill: var(--sec-darkband);
+}
+
+/* Hero */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 32px;
+  align-items: center;
+}
+.hero-visual {
+  height: 360px;
+  border-radius: 24px;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  background: radial-gradient(
+      220px 140px at 20% 30%,
+      color-mix(in oklab, var(--brand) 32%, transparent),
+      transparent 60%
+    ),
+    radial-gradient(
+      260px 140px at 85% 40%,
+      color-mix(in oklab, var(--violet) 35%, transparent),
+      transparent 60%
+    ),
+    radial-gradient(
+      540px 280px at 50% 110%,
+      color-mix(in oklab, var(--brand-2) 35%, transparent),
+      transparent 60%
+    ),
+    linear-gradient(
+      135deg,
+      color-mix(in oklab, var(--ghost), var(--bg)),
+      var(--bg)
+    );
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+}
+.hero-visual .badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.12);
+  padding: 10px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.shape {
+  position: absolute;
+  opacity: 0.12;
+  filter: blur(2px);
+}
+.shape svg {
+  width: 220px;
+  height: 220px;
+}
+.s1 {
+  left: -40px;
+  top: -40px;
+}
+.s2 {
+  right: -50px;
+  bottom: -50px;
+}
+
+.btns {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 980px) {
+  .hero-grid,
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Footer */
+footer {
+  padding: 32px 0;
+  border-top: 1px solid var(--line);
+  color: color-mix(in oklab, var(--ink), #000 30%);
+  font-size: 14px;
+}
